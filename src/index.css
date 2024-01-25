@@ -1,0 +1,30 @@
+:root {
+  /*? Colors  */
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-300: hsl(270, 3%, 87%);
+  --clr-neutral-500: hsl(279, 6%, 55%);
+  --clr-neutral-900: hsl(278, 68%, 11%);
+
+  ---clr-accent-teal: rgb(85, 245, 222);
+  ---clr-accent-dark-teal: rgb(8, 190, 165);
+  ---clr-accent-dark-teal-200: rgb(5, 139, 120);
+
+
+  --clr-hover-accent-100: rgb(110, 106, 245);
+  --clr-hover-accent-200: hsl(278, 94%, 30%);
+
+  ---bg-color-100: rgb(36, 41, 53);
+  ---bg-color-200: rgb(57, 68, 84);
+
+  /*? Fonts */
+  --ff-primary: 'Orbitron', sans-serif;
+  --ff-secondary: 'Roboto Slab', serif;
+
+
+  --fw-thin: 100;
+  --fw-regular-500: 500;
+  --fw-regular-400: 400;
+  --fw-bold: 700;
+
+
+}

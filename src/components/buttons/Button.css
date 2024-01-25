@@ -1,0 +1,14 @@
+.answerBtn {
+    width: 10rem;
+    padding: 7px 20px;
+    font-family: var(--ff-primary);
+    background-color: var(---clr-accent-dark-teal);
+    color: var(--clr-neutral-100);
+    text-shadow: 2px 2px 2px black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.answerBtn:hover {
+    background-color: var(--clr-hover-accent-100);
+}
