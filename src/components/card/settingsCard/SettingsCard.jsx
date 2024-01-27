@@ -1,6 +1,7 @@
 import React from 'react';
 import './SettingsCard.css';
-const SettingsCard = ({ setQuizSeting, quizSettings }) => {
+
+const SettingsCard = ({ setQuizSetings, quizSettings }) => {
   function handleSelect(e, type) {
     setQuizSeting({ ...quizSettings, type: e.target.value });
   }
@@ -10,7 +11,7 @@ const SettingsCard = ({ setQuizSeting, quizSettings }) => {
       <select
         name="difficulty"
         onChange={(event) =>
-          setQuizSeting({ ...quizSettings, difficulty: event.target.value })
+          setQuizSetings({ ...quizSettings, difficulty: event.target.value })
         }
       >
         <option className="select-items" value={'easy'}>
@@ -27,7 +28,7 @@ const SettingsCard = ({ setQuizSeting, quizSettings }) => {
       <select
         name="category"
         onChange={(event) =>
-          setQuizSeting({ ...quizSettings, category: event.target.value })
+          setQuizSetings({ ...quizSettings, category: event.target.value })
         }
       >
         <option value={'9'}>General Knowledge</option>
@@ -39,7 +40,7 @@ const SettingsCard = ({ setQuizSeting, quizSettings }) => {
       <select
         name="type"
         onChange={(event) =>
-          setQuizSeting({ ...quizSettings, type: event.target.value })
+          setQuizSetings({ ...quizSettings, type: event.target.value })
         }
       >
         <option value={''}>Any</option>

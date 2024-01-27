@@ -38,6 +38,25 @@ body {
 
 }
 
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column {
+  flex-direction: column;
+  height: 30rem;
+  justify-content: space-around;
+  margin-bottom: 0;
+}
+
+.flex-column>h2 {
+  font-size: 2.5rem;
+  font-family: var(--ff-secondary);
+  font-weight: var(--fw-regular-400);
+  color: var(--clr-hover-accent-100);
+}
+
 .quizLogo {
   margin-top: 0.7rem;
 }
@@ -53,6 +72,7 @@ body {
 .welcome-heading>b {
   color: var(---clr-accent-dark-teal);
   text-shadow: 4px 2px 3px var(--clr-neutral-900);
+  margin-left: 80px;
 }
 
 .welcome-subHeading {

@@ -1,13 +1,11 @@
-import { useId, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
-import { useQuizData } from './services/api';
-import Button from './components/buttons/Button';
-import SettingsCard from './components/card/settingsCard/SettingsCard';
-import Logo from './assets/Brain Riddle.svg';
-import { decode } from 'html-entities';
+import FrontCard from './components/card/frontCard/frontCard';
+import QuestionCard from './components/card/questionCard/QuestionCard';
+import ScoreCard from './components/card/scoreCard/ScoreCard';
 
 function App() {
-  const [quizSettings, setQuizSeting] = useState({
+  const [quizSettings, setQuizSetings] = useState({
     category: '9',
     difficulty: 'easy',
     type: '',
@@ -15,86 +13,33 @@ function App() {
   const [quizIndex, setQuizIndex] = useState(0);
   const [showScore, setShowScore] = useState(0);
   const [scorePage, setScorePage] = useState(false);
-
-  const { data: quiz, refetch } = useQuizData(quizSettings);
-  console.log(quiz);
-  console.log('score ' + showScore);
-
-  const NextQuestion = (answer, correctAnswer) => {
-    if (answer === correctAnswer) {
-      setShowScore(showScore + 1);
-    }
-
-    const quizNum = quizIndex + 1;
-    if (quizNum < quiz.length) {
-      setQuizIndex(quizNum);
-    } else {
-      setScorePage(true);
-    }
-  };
-
+  const [start, setStart] = useState(false);
+  console.log(quizIndex);
   return (
     <>
-      {!quiz ? (
-        <div className="flex-container">
-          <div className="flex-card">
-            <div className="main-section">
-              <div className="left-side">
-                <img src={Logo} />
-                <h1 className="welcome-heading">
-                  Welcome to <b>MindRiddle.</b>{' '}
-                </h1>
-                <h3 className="welcome-subHeading">
-                  Challenge Your Mind, Ignite Your Intellect
-                </h3>
-              </div>
-
-              <div className="right-side">
-                <SettingsCard
-                  setQuizSeting={setQuizSeting}
-                  quizSettings={quizSettings}
-                />
-                <button className="startBtn" onClick={() => refetch()}>
-                  Start the Quiz
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+      {!start ? (
+        <FrontCard
+          setStart={setStart}
+          quizSettings={quizSettings}
+          setQuizSetings={setQuizSetings} 
+        />
       ) : (
         <>
           {scorePage ? (
-            <h1>{showScore}</h1>
+            <ScoreCard
+              showScore={showScore}
+              setStart={setStart}
+              setQuizIndex={setQuizIndex}
+              setScorePage={setScorePage}
+            />
           ) : (
-            <div className="flex-container">
-              <div className="flex-card">
-                <img src={Logo} className="quizLogo" />
-                <p className="questionCount">Question {quizIndex + 1}/5</p>
-
-                <div className="main-section">
-                  <div className="left-side">
-                    <h2 className="quizQuestion">
-                      {decode(quiz[quizIndex].question)}
-                    </h2>
-                  </div>
-                  <div className="right-side">
-                    {quiz[quizIndex].answers.map((item) => (
-                      <button
-                        className="answerBtn"
-                        onClick={() =>
-                          NextQuestion(
-                            item.value,
-                            quiz[quizIndex].correctAnswer
-                          )
-                        }
-                      >
-                        {item.value}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <QuestionCard
+              quizSettings={quizSettings}
+              setShowScore={setShowScore}
+              setScorePage={setScorePage}
+              quizIndex={quizIndex}
+              setQuizIndex={setQuizIndex}
+            />
           )}
         </>
       )}
