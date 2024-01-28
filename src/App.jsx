@@ -5,6 +5,7 @@ import QuestionCard from './components/card/questionCard/QuestionCard';
 import ScoreCard from './components/card/scoreCard/ScoreCard';
 
 function App() {
+
   const [quizSettings, setQuizSetings] = useState({
     category: '9',
     difficulty: 'easy',

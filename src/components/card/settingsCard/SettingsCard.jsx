@@ -1,10 +1,17 @@
 import React from 'react';
 import './SettingsCard.css';
+import { useQuizCategory } from '../../../services/api';
 
 const SettingsCard = ({ setQuizSetings, quizSettings }) => {
-  function handleSelect(e, type) {
-    setQuizSeting({ ...quizSettings, type: e.target.value });
-  }
+  const { data: category } = useQuizCategory();
+
+  const listOfCategories = category?.data.trivia_categories?.map((item) => {
+    return (
+      <option className="select-items" value={item.id}>
+        {item.name}
+      </option>
+    );
+  });
   return (
     <>
       <label htmlFor="difficulty">Choose the difficulty</label>
@@ -25,15 +32,14 @@ const SettingsCard = ({ setQuizSetings, quizSettings }) => {
         </option>
       </select>
       <label htmlFor="category">Choose the category:</label>
+
       <select
         name="category"
         onChange={(event) =>
           setQuizSetings({ ...quizSettings, category: event.target.value })
         }
       >
-        <option value={'9'}>General Knowledge</option>
-        <option value={'11'}>Films</option>
-        <option value={'12'}>Music</option>
+        {listOfCategories}
       </select>
 
       <label htmlFor="type"> Choose type of questions:</label>

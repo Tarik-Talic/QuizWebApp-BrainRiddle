@@ -10,10 +10,19 @@ const getData = async (settings) => {
     .then((res) => formatQuizData(res.data.results));
 };
 
+const getCategory = () => {
+  return axios.get(`https://opentdb.com/api_category.php`);
+};
 export const useQuizData = (settings) => {
   return useQuery({
     queryKey: ['quizData', settings],
     queryFn: () => getData(settings),
     enabled: false,
+  });
+};
+export const useQuizCategory = () => {
+  return useQuery({
+    queryKey: ['quizCategory'],
+    queryFn: () => getCategory(),
   });
 };
