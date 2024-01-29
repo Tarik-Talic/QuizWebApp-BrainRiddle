@@ -1,25 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Logo from '../../../assets/Brain Riddle.svg';
-const ScoreCard = ({ showScore, setStart, setQuizIndex, setScorePage }) => {
+import { QuizContext } from '../../../context/QuizContext';
+const ScoreCard = () => {
+  const { score, setScore, setStart, setQuizIndex, setShowScorePage } =
+    useContext(QuizContext);
   const resetQuiz = () => {
     setStart((prevstate) => !prevstate);
     setQuizIndex(0);
-    setScorePage(false);
+    setScore(0);
+    setShowScorePage(false);
   };
-
   return (
-    <div className="flex-container">
-      <div className="flex-card center">
-        <div className="main-section flex-column">
-          <img src={Logo} />
+    <div className="main-section flex-column">
+      <img src={Logo} />
 
-          <h2>You have scored <b className=''>{showScore}</b> out of 5.</h2>
+      <h2>
+        You have scored <b className="">{score}</b> out of 5.
+      </h2>
 
-          <button className="startBtn" onClick={() => resetQuiz()}>
-            Play Again?
-          </button>
-        </div>
-      </div>
+      <button className="startBtn" onClick={() => resetQuiz()}>
+        Play Again?
+      </button>
     </div>
   );
 };
