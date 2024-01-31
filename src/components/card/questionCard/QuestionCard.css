@@ -1,0 +1,38 @@
+.questionCount {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    color: var(--clr-neutral-500);
+    font-family: var(--ff-secondary);
+    font-size: 15px;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+}
+
+.quizQuestion {
+    text-align: center;
+    width: 100%;
+    font-family: var(--ff-secondary);
+    font-size: 40px;
+    color: var(--clr-neutral-300);
+}
+
+.answerBtn {
+    width: 10rem;
+    padding: 7px 20px;
+    font-family: var(--ff-primary);
+    background-color: var(---clr-accent-dark-teal);
+    color: var(--clr-neutral-100);
+    text-shadow: 2px 2px 2px black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.answerBtn:hover {
+    background-color: var(--clr-hover-accent-100);
+}
+
+.loader {
+    margin-top: 20%;
+}

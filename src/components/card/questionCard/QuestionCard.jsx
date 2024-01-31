@@ -1,16 +1,17 @@
 import { React, useContext } from 'react';
+import './QuestionCard.css';
 import Logo from '../../../assets/Brain Riddle.svg';
 import { useQuizData } from '../../../services/api';
 import { decode } from 'html-entities';
 import { QuizContext } from '../../../context/QuizContext';
+import { MagnifyingGlass } from 'react-loader-spinner';
 
 const QuestionCard = () => {
-
   const { quizSettings, setShowScorePage, setScore, quizIndex, setQuizIndex } =
     useContext(QuizContext);
-  const { data: quiz } = useQuizData(quizSettings);
+  const { data: quiz, isLoading } = useQuizData(quizSettings);
 
-  const NextQuestion = (answer, correctAnswer) => {
+  const CheckingAnswer = (answer, correctAnswer) => {
     if (answer === correctAnswer) {
       setScore((prevState) => prevState + 1);
     }
@@ -22,7 +23,20 @@ const QuestionCard = () => {
       setShowScorePage(true);
     }
   };
-  
+
+  if (isLoading) {
+    return (
+      <div className="loader">
+        <MagnifyingGlass
+          height="100"
+          width="100"
+          radius="9"
+          color="green"
+          ariaLabel="magnifying-glass"
+        />
+      </div>
+    );
+  }
   return (
     <>
       <img src={Logo} className="quizLogo" />
@@ -40,7 +54,7 @@ const QuestionCard = () => {
               <button
                 className="answerBtn"
                 onClick={() =>
-                  NextQuestion(item.value, quiz[quizIndex].correctAnswer)
+                  CheckingAnswer(item.value, quiz[quizIndex].correctAnswer)
                 }
               >
                 {decode(item.value)}

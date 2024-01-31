@@ -7,7 +7,7 @@ const SettingsCard = ({ setQuizSetings, quizSettings }) => {
 
   const listOfCategories = category?.data.trivia_categories?.map((item) => {
     return (
-      <option className="select-items" value={item.id}>
+      <option className="select-items" value={item.id} key={item.id}>
         {item.name}
       </option>
     );

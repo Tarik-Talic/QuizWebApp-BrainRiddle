@@ -16,8 +16,6 @@ function shuffleAnswers(posibleAnswers) {
   let arrayOfAnswers = arrJoined.map((item) => {
     return {
       value: item,
-      id: nanoid(5),
-      isHeld: false,
     };
   });
 

@@ -1,4 +1,5 @@
 import { React, useContext } from 'react';
+import './FrontCard.css';
 import Logo from '../../../assets/Brain Riddle.svg';
 import SettingsCard from '../settingsCard/SettingsCard';
 import { useQuizData } from '../../../services/api';

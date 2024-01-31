@@ -1,0 +1,22 @@
+.score {
+    color: var(---clr-accent-dark-teal);
+}
+
+.q-amount {
+    color: var(--clr-hover-accent-100);
+}
+
+.flex-column {
+    flex-direction: column;
+    height: 30rem;
+    justify-content: space-around;
+    margin-bottom: 0;
+}
+
+.flex-column>h2 {
+    font-size: 2.5rem;
+    font-family: var(--ff-secondary);
+    font-weight: var(--fw-regular-400);
+    color: var(--clr-neutral-100);
+    margin-top: 0;
+}

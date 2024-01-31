@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import FrontCard from '../components/card/frontCard/frontCard';
+import FrontCard from '../components/card/frontCard/FrontCard';
 import QuestionCard from '../components/card/questionCard/QuestionCard';
 import ScoreCard from '../components/card/scoreCard/ScoreCard';
 import { QuizContext } from '../context/QuizContext';

@@ -37,50 +37,15 @@ body {
   margin-bottom: 2rem;
 
 }
-
 .center {
   align-items: center;
   justify-content: center;
-}
-
-.flex-column {
-  flex-direction: column;
-  height: 30rem;
-  justify-content: space-around;
-  margin-bottom: 0;
-}
-
-.flex-column>h2 {
-  font-size: 2.5rem;
-  font-family: var(--ff-secondary);
-  font-weight: var(--fw-regular-400);
-  color: var(--clr-hover-accent-100);
 }
 
 .quizLogo {
   margin-top: 0.7rem;
 }
 
-.welcome-heading {
-  margin: 0;
-  font-family: var(--ff-primary);
-  font-weight: var(--fw-bold);
-  font-size: 55px;
-  color: var(--clr-neutral-300);
-}
-
-.welcome-heading>b {
-  color: var(---clr-accent-dark-teal);
-  text-shadow: 4px 2px 3px var(--clr-neutral-900);
-  margin-left: 80px;
-}
-
-.welcome-subHeading {
-  font-family: var(--ff-secondary);
-  font-weight: var(--fw-regular-400);
-  color: var(--clr-hover-accent-100);
-  text-shadow: 2px 2px 3px black;
-}
 
 .left-side,
 .right-side {
@@ -101,64 +66,10 @@ body {
   color: #d4d4d4;
 }
 
-.quizQuestion {
-  text-align: center;
-  width: 100%;
-  font-family: var(--ff-secondary);
-  font-size: 40px;
-  color: var(--clr-neutral-300);
-}
-
 .right-side {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
   color: var(--clr-neutral-300);
-}
-
-.answerBtn {
-  width: 10rem;
-  padding: 7px 20px;
-  font-family: var(--ff-primary);
-  background-color: var(---clr-accent-dark-teal);
-  color: var(--clr-neutral-100);
-  text-shadow: 2px 2px 2px black;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.answerBtn:hover {
-  background-color: var(--clr-hover-accent-100);
-}
-
-.questionCount {
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-  width: 100%;
-  color: var(--clr-neutral-500);
-  font-family: var(--ff-secondary);
-  font-size: 15px;
-  letter-spacing: 1px;
-  word-spacing: 5px;
-}
-
-.startBtn {
-  padding: 10px;
-  width: 70%;
-  border-radius: 35px;
-  font-family: var(--ff-primary);
-  font-weight: var(--fw-bold);
-  font-size: 15px;
-  margin-top: 1rem;
-  color: var(--clr-neutral-300);
-  text-shadow: -2px 2px 5px black;
-  background-color: #74EBD5;
-  background-image: linear-gradient(135deg, var(---clr-accent-dark-teal) 0%, #536ee9 100%);
-  box-shadow: -5px 6px 10px var(--clr-neutral-900);
-}
-
-.startBtn:hover {
-  background-image: linear-gradient(135deg, var(--clr-hover-accent-200) 0%, var(---clr-accent-dark-teal) 100%);
 }
