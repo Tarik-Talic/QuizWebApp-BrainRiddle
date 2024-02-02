@@ -1,15 +1,28 @@
-import { React, useContext } from 'react';
 import './FrontCard.css';
 import Logo from '../../../assets/Brain Riddle.svg';
 import SettingsCard from '../settingsCard/SettingsCard';
 import { useQuizData } from '../../../services/api';
-import { QuizContext } from '../../../context/QuizContext';
 
-const FrontCard = () => {
-  const { quizSettings, setQuizSetings, setStart } = useContext(QuizContext);
+export type QuizSetting = {
+  category: string;
+  difficulty: string;
+  type: string;
+};
+
+type FrontCardProps = {
+  quizSettings: QuizSetting;
+  setQuizSettings: React.Dispatch<React.SetStateAction<QuizSetting>>;
+  setStart: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export default function FrontCard({
+  setQuizSettings,
+  quizSettings,
+  setStart,
+}: FrontCardProps) {
   const { refetch } = useQuizData(quizSettings);
   const startQuiz = () => {
-    setStart((prevState) => !prevState);
+    setStart((prevState: boolean) => !prevState);
     refetch();
   };
   return (
@@ -26,7 +39,7 @@ const FrontCard = () => {
 
       <div className="right-side">
         <SettingsCard
-          setQuizSetings={setQuizSetings}
+          setQuizSetings={setQuizSettings}
           quizSettings={quizSettings}
         />
         <button className="startBtn" onClick={() => startQuiz()}>
@@ -35,6 +48,4 @@ const FrontCard = () => {
       </div>
     </div>
   );
-};
-
-export default FrontCard;
+}

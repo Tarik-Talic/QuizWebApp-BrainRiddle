@@ -1,17 +1,33 @@
-import { React, useContext } from 'react';
 import './QuestionCard.css';
 import Logo from '../../../assets/Brain Riddle.svg';
 import { useQuizData } from '../../../services/api';
 import { decode } from 'html-entities';
-import { QuizContext } from '../../../context/QuizContext';
-import { MagnifyingGlass } from 'react-loader-spinner';
 
-const QuestionCard = () => {
-  const { quizSettings, setShowScorePage, setScore, quizIndex, setQuizIndex } =
-    useContext(QuizContext);
+import { MagnifyingGlass } from 'react-loader-spinner';
+import { QuizSetting } from '../frontCard/FrontCard';
+
+interface Answer {
+  value: string;
+}
+
+type QuestionCardProps = {
+  quizSettings: QuizSetting;
+  setShowScorePage: React.Dispatch<React.SetStateAction<boolean>>;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+  quizIndex: number;
+  setQuizIndex: React.Dispatch<React.SetStateAction<number>>;
+};
+
+const QuestionCard = ({
+  quizSettings,
+  setShowScorePage,
+  setScore,
+  quizIndex,
+  setQuizIndex,
+}: QuestionCardProps) => {
   const { data: quiz, isLoading } = useQuizData(quizSettings);
 
-  const CheckingAnswer = (answer, correctAnswer) => {
+  const CheckingAnswer = (answer: string, correctAnswer: string) => {
     if (answer === correctAnswer) {
       setScore((prevState) => prevState + 1);
     }
@@ -30,7 +46,7 @@ const QuestionCard = () => {
         <MagnifyingGlass
           height="100"
           width="100"
-          radius="9"
+          // radius="9"
           color="green"
           ariaLabel="magnifying-glass"
         />
@@ -50,7 +66,7 @@ const QuestionCard = () => {
         </div>
         <div className="right-side">
           {quiz &&
-            quiz[quizIndex].answers.map((item) => (
+            quiz[quizIndex].answers.map((item: Answer) => (
               <button
                 className="answerBtn"
                 onClick={() =>

@@ -1,12 +1,23 @@
-import React, { useContext } from 'react';
 import './ScoreCard.css';
 import Logo from '../../../assets/Brain Riddle.svg';
-import { QuizContext } from '../../../context/QuizContext';
-const ScoreCard = () => {
-  const { score, setScore, setStart, setQuizIndex, setShowScorePage } =
-    useContext(QuizContext);
+
+type ScoreCardProps = {
+  score: number;
+  setStart: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowScorePage: React.Dispatch<React.SetStateAction<boolean>>;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+  setQuizIndex: React.Dispatch<React.SetStateAction<number>>;
+};
+
+const ScoreCard = ({
+  score,
+  setStart,
+  setQuizIndex,
+  setScore,
+  setShowScorePage,
+}: ScoreCardProps) => {
   const resetQuiz = () => {
-    setStart((prevstate) => !prevstate);
+    setStart((prevstate: boolean) => !prevstate);
     setQuizIndex(0);
     setScore(0);
     setShowScorePage(false);

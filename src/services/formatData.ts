@@ -1,7 +1,10 @@
 import { nanoid } from 'nanoid';
 
-export function formatQuizData(data) {
-  let formattedData = data.map((item) => {
+
+
+export function formatQuizData(data: any) {
+  console.log(data);
+  let formattedData = data.map((item: any) => {
     return {
       id: nanoid(),
       question: item.question,
@@ -11,7 +14,7 @@ export function formatQuizData(data) {
   });
   return formattedData;
 }
-function shuffleAnswers(posibleAnswers) {
+function shuffleAnswers(posibleAnswers: string[]) {
   let arrJoined = [...posibleAnswers].sort(() => Math.random() - 0.5);
   let arrayOfAnswers = arrJoined.map((item) => {
     return {

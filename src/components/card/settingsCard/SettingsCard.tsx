@@ -1,11 +1,17 @@
 import React from 'react';
 import './SettingsCard.css';
 import { useQuizCategory } from '../../../services/api';
+import { type QuizSetting } from '../frontCard/FrontCard';
 
-const SettingsCard = ({ setQuizSetings, quizSettings }) => {
+type SettingsCardProps={
+  quizSettings: QuizSetting
+  setQuizSetings :React.Dispatch<React.SetStateAction<QuizSetting>>
+
+}
+const SettingsCard = ({ setQuizSetings, quizSettings } : SettingsCardProps) => {
   const { data: category } = useQuizCategory();
 
-  const listOfCategories = category?.data.trivia_categories?.map((item) => {
+  const listOfCategories = category?.data.trivia_categories?.map((item : any) => {
     return (
       <option className="select-items" value={item.id} key={item.id}>
         {item.name}
