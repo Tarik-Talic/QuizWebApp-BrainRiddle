@@ -1,10 +1,17 @@
 import { nanoid } from 'nanoid';
 
+interface Data {
+  category: string;
+  correct_answer: string;
+  difficulty: string;
+  incorrect_answers: string[];
+  question: string;
+  type: string;
+}
 
-
-export function formatQuizData(data: any) {
+export function formatQuizData(data: []) {
   console.log(data);
-  let formattedData = data.map((item: any) => {
+  let formattedData = data.map((item: Data) => {
     return {
       id: nanoid(),
       question: item.question,

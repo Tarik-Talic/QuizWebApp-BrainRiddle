@@ -1,5 +1,8 @@
 import './ScoreCard.css';
 import Logo from '../../../assets/Brain Riddle.svg';
+import Button from '../../buttons/Button';
+import MainHeading from '../../headings/MainHeading';
+import SubHeading from '../../headings/SubHeading';
 
 type ScoreCardProps = {
   score: number;
@@ -25,15 +28,16 @@ const ScoreCard = ({
   return (
     <div className="main-section flex-column">
       <img src={Logo} />
-      <h2>Congratulations! </h2>
-      <h2>
+      <MainHeading >Congratulations!</MainHeading>
+      <SubHeading>
         You have scored <b className="score">{score}</b> out of{' '}
         <b className="q-amount">5</b>.
-      </h2>
+      </SubHeading>
 
-      <button className="startBtn" onClick={() => resetQuiz()}>
+  
+      <Button className="startBtn" onClick={() => resetQuiz()}>
         Play Again?
-      </button>
+      </Button>
     </div>
   );
 };

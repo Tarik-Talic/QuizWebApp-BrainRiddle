@@ -2,6 +2,9 @@ import './FrontCard.css';
 import Logo from '../../../assets/Brain Riddle.svg';
 import SettingsCard from '../settingsCard/SettingsCard';
 import { useQuizData } from '../../../services/api';
+import Button from '../../buttons/Button';
+import MainHeading from '../../headings/MainHeading';
+import SubHeading from '../../headings/SubHeading';
 
 export type QuizSetting = {
   category: string;
@@ -28,13 +31,14 @@ export default function FrontCard({
   return (
     <div className="main-section">
       <div className="left-side">
-        <img src={Logo} />
-        <h1 className="welcome-heading">
-          Welcome to <b>MindRiddle.</b>{' '}
-        </h1>
-        <h3 className="welcome-subHeading">
+        <img src={Logo} className='frontLogo' />
+        <MainHeading className="welcome-heading">
+          Welcome to <b>MindRiddle.</b>
+        </MainHeading>
+
+        <SubHeading className="welcome-subHeading" as="h3">
           Challenge Your Mind, Ignite Your Intellect
-        </h3>
+        </SubHeading>
       </div>
 
       <div className="right-side">
@@ -42,9 +46,9 @@ export default function FrontCard({
           setQuizSetings={setQuizSettings}
           quizSettings={quizSettings}
         />
-        <button className="startBtn" onClick={() => startQuiz()}>
+        <Button className="startBtn" onClick={() => startQuiz()}>
           Start the Quiz
-        </button>
+        </Button>
       </div>
     </div>
   );

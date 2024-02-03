@@ -37,6 +37,7 @@ body {
   margin-bottom: 2rem;
 
 }
+
 .center {
   align-items: center;
   justify-content: center;
@@ -72,4 +73,27 @@ body {
   align-items: center;
   gap: 1rem;
   color: var(--clr-neutral-300);
+}
+
+@media (max-width:400px) {
+  .flex-card {
+    width: 90%;
+  }
+
+  .main-section {
+    flex-direction: column;
+  }
+
+  .frontLogo {
+    width: 6rem;
+  }
+
+  
+  .quizQuestion {
+    font-size: 30px;
+  }
+
+  .flex-column>h1 {
+    font-size: 30px;
+  }
 }

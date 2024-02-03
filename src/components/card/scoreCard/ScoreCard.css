@@ -13,10 +13,25 @@
     margin-bottom: 0;
 }
 
+.flex-column>h1 {
+    color: white;
+    font-size: 3rem;
+    font-family: var(--ff-secondary);
+    font-weight: var(--fw-regular-400);
+}
+
 .flex-column>h2 {
     font-size: 2.5rem;
     font-family: var(--ff-secondary);
     font-weight: var(--fw-regular-400);
     color: var(--clr-neutral-100);
     margin-top: 0;
+}
+
+@media (max-width:400px) {
+
+    .flex-column>h1,
+    .flex-column>h2 {
+        font-size: 25px;
+    }
 }

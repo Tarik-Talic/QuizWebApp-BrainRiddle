@@ -37,3 +37,17 @@
 .startBtn:hover {
     background-image: linear-gradient(135deg, var(--clr-hover-accent-200) 0%, var(---clr-accent-dark-teal) 100%);
 }
+
+@media (max-width:400px) {
+
+    .frontLogo {
+        width: 6rem;
+    }
+
+    .welcome-heading {
+        font-size: 30px;
+    }
+
+
+
+}

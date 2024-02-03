@@ -5,6 +5,8 @@ import { decode } from 'html-entities';
 
 import { MagnifyingGlass } from 'react-loader-spinner';
 import { QuizSetting } from '../frontCard/FrontCard';
+import Question from '../../headings/Question';
+import Button from '../../buttons/Button';
 
 interface Answer {
   value: string;
@@ -32,8 +34,9 @@ const QuestionCard = ({
       setScore((prevState) => prevState + 1);
     }
 
-    const quizNum = quizIndex + 1;
-    if (quizNum < quiz.length) {
+    const quizNum: number = quizIndex + 1;
+    const quizData : any = quiz;
+    if (quizNum < quizData.length) {
       setQuizIndex(quizNum);
     } else {
       setShowScorePage(true);
@@ -46,7 +49,6 @@ const QuestionCard = ({
         <MagnifyingGlass
           height="100"
           width="100"
-          // radius="9"
           color="green"
           ariaLabel="magnifying-glass"
         />
@@ -60,21 +62,28 @@ const QuestionCard = ({
 
       <div className="main-section">
         <div className="left-side">
-          <h2 className="quizQuestion">
-            {quiz && decode(quiz[quizIndex].question)}
-          </h2>
+          {quiz && (
+            <Question
+              as="h2"
+              className={'quizQuestion'}
+              key={quiz[quizIndex].question}
+            >
+              {decode(quiz[quizIndex].question)}
+            </Question>
+          )}
         </div>
         <div className="right-side">
           {quiz &&
             quiz[quizIndex].answers.map((item: Answer) => (
-              <button
+              <Button
+                key={item.value}
                 className="answerBtn"
                 onClick={() =>
                   CheckingAnswer(item.value, quiz[quizIndex].correctAnswer)
                 }
               >
                 {decode(item.value)}
-              </button>
+              </Button>
             ))}
         </div>
       </div>

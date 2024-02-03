@@ -36,3 +36,9 @@
 .loader {
     margin-top: 20%;
 }
+
+@media (max-width:400px) {
+    .quizQuestion {
+        font-size: 30px;
+    }
+}
