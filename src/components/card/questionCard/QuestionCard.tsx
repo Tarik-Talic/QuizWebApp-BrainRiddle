@@ -2,22 +2,13 @@ import './QuestionCard.css';
 import Logo from '../../../assets/Brain Riddle.svg';
 import { useQuizData } from '../../../services/api';
 import { decode } from 'html-entities';
-
 import { MagnifyingGlass } from 'react-loader-spinner';
-import { QuizSetting } from '../frontCard/FrontCard';
+import { type QuestionCardProps } from '../../types/Quiz.types';
 import Question from '../../headings/Question';
 import Button from '../../buttons/Button';
 
-interface Answer {
+type Answer = {
   value: string;
-}
-
-type QuestionCardProps = {
-  quizSettings: QuizSetting;
-  setShowScorePage: React.Dispatch<React.SetStateAction<boolean>>;
-  setScore: React.Dispatch<React.SetStateAction<number>>;
-  quizIndex: number;
-  setQuizIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const QuestionCard = ({
@@ -35,7 +26,7 @@ const QuestionCard = ({
     }
 
     const quizNum: number = quizIndex + 1;
-    const quizData : any = quiz;
+    const quizData: any = quiz;
     if (quizNum < quizData.length) {
       setQuizIndex(quizNum);
     } else {

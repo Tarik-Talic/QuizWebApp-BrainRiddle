@@ -5,18 +5,7 @@ import { useQuizData } from '../../../services/api';
 import Button from '../../buttons/Button';
 import MainHeading from '../../headings/MainHeading';
 import SubHeading from '../../headings/SubHeading';
-
-export type QuizSetting = {
-  category: string;
-  difficulty: string;
-  type: string;
-};
-
-type FrontCardProps = {
-  quizSettings: QuizSetting;
-  setQuizSettings: React.Dispatch<React.SetStateAction<QuizSetting>>;
-  setStart: React.Dispatch<React.SetStateAction<boolean>>;
-};
+import { FrontCardProps } from '../../types/Quiz.types';
 
 export default function FrontCard({
   setQuizSettings,
@@ -31,7 +20,7 @@ export default function FrontCard({
   return (
     <div className="main-section">
       <div className="left-side">
-        <img src={Logo} className='frontLogo' />
+        <img src={Logo} className="frontLogo" />
         <MainHeading className="welcome-heading">
           Welcome to <b>MindRiddle.</b>
         </MainHeading>

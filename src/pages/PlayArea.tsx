@@ -14,6 +14,7 @@ const PlayArea = () => {
   const [quizIndex, setQuizIndex] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
 
+  
   return (
     <div className="flex-container">
       <div className="flex-card">

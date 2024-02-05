@@ -1,23 +1,24 @@
 import React from 'react';
 import './SettingsCard.css';
 import { useQuizCategory } from '../../../services/api';
-import { type QuizSetting } from '../frontCard/FrontCard';
+import { type QuizSettings } from '../../types/Quiz.types';
 
-type SettingsCardProps={
-  quizSettings: QuizSetting
-  setQuizSetings :React.Dispatch<React.SetStateAction<QuizSetting>>
-
-}
-const SettingsCard = ({ setQuizSetings, quizSettings } : SettingsCardProps) => {
+export type SettingsCardProps = {
+  quizSettings: QuizSettings;
+  setQuizSetings: React.Dispatch<React.SetStateAction<QuizSettings>>;
+};
+const SettingsCard = ({ setQuizSetings, quizSettings }: SettingsCardProps) => {
   const { data: category } = useQuizCategory();
 
-  const listOfCategories = category?.data.trivia_categories?.map((item : any) => {
-    return (
-      <option className="select-items" value={item.id} key={item.id}>
-        {item.name}
-      </option>
-    );
-  });
+  const listOfCategories = category?.data.trivia_categories?.map(
+    (item: any) => {
+      return (
+        <option className="select-items" value={item.id} key={item.id}>
+          {item.name}
+        </option>
+      );
+    }
+  );
   return (
     <>
       <label htmlFor="difficulty">Choose the difficulty</label>

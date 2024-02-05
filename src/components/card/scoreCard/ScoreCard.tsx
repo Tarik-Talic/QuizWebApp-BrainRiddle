@@ -3,14 +3,7 @@ import Logo from '../../../assets/Brain Riddle.svg';
 import Button from '../../buttons/Button';
 import MainHeading from '../../headings/MainHeading';
 import SubHeading from '../../headings/SubHeading';
-
-type ScoreCardProps = {
-  score: number;
-  setStart: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowScorePage: React.Dispatch<React.SetStateAction<boolean>>;
-  setScore: React.Dispatch<React.SetStateAction<number>>;
-  setQuizIndex: React.Dispatch<React.SetStateAction<number>>;
-};
+import { type ScoreCardProps } from '../../types/Quiz.types';
 
 const ScoreCard = ({
   score,
@@ -28,13 +21,12 @@ const ScoreCard = ({
   return (
     <div className="main-section flex-column">
       <img src={Logo} />
-      <MainHeading >Congratulations!</MainHeading>
+      <MainHeading>Congratulations!</MainHeading>
       <SubHeading>
         You have scored <b className="score">{score}</b> out of{' '}
         <b className="q-amount">5</b>.
       </SubHeading>
 
-  
       <Button className="startBtn" onClick={() => resetQuiz()}>
         Play Again?
       </Button>
