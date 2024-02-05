@@ -1,11 +1,9 @@
 import './FrontCard.css';
 import Logo from '../../../assets/Brain Riddle.svg';
-import SettingsCard from '../settingsCard/SettingsCard';
 import { useQuizData } from '../../../services/api';
 import Button from '../../buttons/Button';
-import MainHeading from '../../headings/MainHeading';
-import SubHeading from '../../headings/SubHeading';
 import { FrontCardProps } from '../../types/Quiz.types';
+import { SettingsCard, MainHeading, SubHeading } from '../../';
 
 export default function FrontCard({
   setQuizSettings,

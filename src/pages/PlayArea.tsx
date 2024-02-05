@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import FrontCard from '../components/card/frontCard/FrontCard';
-import QuestionCard from '../components/card/questionCard/QuestionCard';
-import ScoreCard from '../components/card/scoreCard/ScoreCard';
+import {FrontCard ,QuestionCard ,ScoreCard} from '../components';
+
 
 const PlayArea = () => {
   const [quizSettings, setQuizSetings] = useState({

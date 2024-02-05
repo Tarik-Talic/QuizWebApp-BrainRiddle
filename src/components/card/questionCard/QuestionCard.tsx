@@ -4,8 +4,8 @@ import { useQuizData } from '../../../services/api';
 import { decode } from 'html-entities';
 import { MagnifyingGlass } from 'react-loader-spinner';
 import { type QuestionCardProps } from '../../types/Quiz.types';
-import Question from '../../headings/Question';
-import Button from '../../buttons/Button';
+
+import { Question, Button } from '../../';
 
 type Answer = {
   value: string;

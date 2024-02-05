@@ -1,9 +1,7 @@
 import './ScoreCard.css';
 import Logo from '../../../assets/Brain Riddle.svg';
-import Button from '../../buttons/Button';
-import MainHeading from '../../headings/MainHeading';
-import SubHeading from '../../headings/SubHeading';
 import { type ScoreCardProps } from '../../types/Quiz.types';
+import { Button, MainHeading, SubHeading } from '../../';
 
 const ScoreCard = ({
   score,
